@@ -17,6 +17,7 @@
 		02A869341BD5CE5B002CCB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A869321BD5CE5B002CCB27 /* LaunchScreen.storyboard */; };
 		02A8693F1BD5CE5B002CCB27 /* CornersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8693E1BD5CE5B002CCB27 /* CornersTests.m */; };
 		02A8694A1BD5CE5B002CCB27 /* CornersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869491BD5CE5B002CCB27 /* CornersUITests.m */; };
+		02E812AD1BF5A7D0004FE543 /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E812AC1BF5A7D0004FE543 /* StartScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		02A869451BD5CE5B002CCB27 /* CornersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CornersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A869491BD5CE5B002CCB27 /* CornersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CornersUITests.m; sourceTree = "<group>"; };
 		02A8694B1BD5CE5B002CCB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02E812AB1BF5A7D0004FE543 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
+		02E812AC1BF5A7D0004FE543 /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 			children = (
 				02A869221BD5CE5B002CCB27 /* AppDelegate.h */,
 				02A869231BD5CE5B002CCB27 /* AppDelegate.m */,
+				02E812AB1BF5A7D0004FE543 /* StartScene.h */,
+				02E812AC1BF5A7D0004FE543 /* StartScene.m */,
 				02A869251BD5CE5B002CCB27 /* GameScene.h */,
 				02A869261BD5CE5B002CCB27 /* GameScene.m */,
 				02A869281BD5CE5B002CCB27 /* GameScene.sks */,
@@ -284,6 +289,7 @@
 				02A869241BD5CE5B002CCB27 /* AppDelegate.m in Sources */,
 				02A869271BD5CE5B002CCB27 /* GameScene.m in Sources */,
 				02A869211BD5CE5B002CCB27 /* main.m in Sources */,
+				02E812AD1BF5A7D0004FE543 /* StartScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +523,7 @@
 				02A869501BD5CE5B002CCB27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02A869511BD5CE5B002CCB27 /* Build configuration list for PBXNativeTarget "CornersTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +532,7 @@
 				02A869531BD5CE5B002CCB27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02A869541BD5CE5B002CCB27 /* Build configuration list for PBXNativeTarget "CornersUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +541,7 @@
 				02A869561BD5CE5B002CCB27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

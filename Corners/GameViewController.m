@@ -45,8 +45,6 @@
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    NSLog(@"First commit");
-    
     // Present the scene.
     [skView presentScene:scene];
 }
