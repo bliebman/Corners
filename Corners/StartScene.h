@@ -10,4 +10,10 @@
 
 @interface StartScene : SKScene
 
+@property (nonatomic) SKLabelNode *nameLabelNode;
+
+@property (nonatomic) SKLabelNode *startButtonNode;
+@property (nonatomic) SKLabelNode *highScoreButtonNode;
+@property (nonatomic) SKLabelNode *settingsButtonNode;
+
 @end

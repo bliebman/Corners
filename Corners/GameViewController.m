@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "StartScene.h"
 
 @implementation SKScene (Unarchive)
 
@@ -42,11 +43,12 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    //GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    StartScene *startScene = [StartScene unarchiveFromFile:@"StartScene"];
+    startScene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:startScene];
 }
 
 - (BOOL)shouldAutorotate
