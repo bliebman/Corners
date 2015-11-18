@@ -7,9 +7,13 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "PlayerNode.h"
 
 @interface GameScene : SKScene
 
-@property (nonatomic) SKSpriteNode *player;
+@property (nonatomic) PlayerNode *playerNode;
+
+@property (nonatomic) SKSpriteNode *leftButtonNode;
+@property (nonatomic) SKSpriteNode *rightButtonNode;
 
 @end

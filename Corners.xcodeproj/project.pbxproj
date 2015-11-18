@@ -17,6 +17,9 @@
 		02A869341BD5CE5B002CCB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A869321BD5CE5B002CCB27 /* LaunchScreen.storyboard */; };
 		02A8693F1BD5CE5B002CCB27 /* CornersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8693E1BD5CE5B002CCB27 /* CornersTests.m */; };
 		02A8694A1BD5CE5B002CCB27 /* CornersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869491BD5CE5B002CCB27 /* CornersUITests.m */; };
+		02AB2B111BFC0CD700C81AFB /* LButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AB2B0F1BFC0CD700C81AFB /* LButton.png */; };
+		02AB2B121BFC0CD700C81AFB /* Rbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AB2B101BFC0CD700C81AFB /* Rbutton.png */; };
+		02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AB2B161BFC2D9400C81AFB /* PlayerNode.m */; };
 		02E2D55C1BFAD9AC0074978B /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02E2D55B1BFAD9AC0074978B /* StartScene.sks */; };
 		02E2D55E1BFAFFB60074978B /* player_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2D55D1BFAFFB60074978B /* player_square.png */; };
 		02E812AD1BF5A7D0004FE543 /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E812AC1BF5A7D0004FE543 /* StartScene.m */; };
@@ -59,6 +62,12 @@
 		02A869451BD5CE5B002CCB27 /* CornersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CornersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A869491BD5CE5B002CCB27 /* CornersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CornersUITests.m; sourceTree = "<group>"; };
 		02A8694B1BD5CE5B002CCB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02AB2B0F1BFC0CD700C81AFB /* LButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LButton.png; sourceTree = "<group>"; };
+		02AB2B101BFC0CD700C81AFB /* Rbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rbutton.png; sourceTree = "<group>"; };
+		02AB2B131BFC298B00C81AFB /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
+		02AB2B141BFC29CE00C81AFB /* corners_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = corners_defines.h; sourceTree = "<group>"; };
+		02AB2B151BFC2D9400C81AFB /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
+		02AB2B161BFC2D9400C81AFB /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
 		02E2D55B1BFAD9AC0074978B /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
 		02E2D55D1BFAFFB60074978B /* player_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_square.png; sourceTree = "<group>"; };
 		02E812AB1BF5A7D0004FE543 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
@@ -118,6 +127,8 @@
 				02E812AB1BF5A7D0004FE543 /* StartScene.h */,
 				02E812AC1BF5A7D0004FE543 /* StartScene.m */,
 				02E2D55B1BFAD9AC0074978B /* StartScene.sks */,
+				02AB2B151BFC2D9400C81AFB /* PlayerNode.h */,
+				02AB2B161BFC2D9400C81AFB /* PlayerNode.m */,
 				02A869251BD5CE5B002CCB27 /* GameScene.h */,
 				02A869261BD5CE5B002CCB27 /* GameScene.m */,
 				02A869281BD5CE5B002CCB27 /* GameScene.sks */,
@@ -135,8 +146,12 @@
 		02A8691F1BD5CE5B002CCB27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02AB2B0F1BFC0CD700C81AFB /* LButton.png */,
+				02AB2B101BFC0CD700C81AFB /* Rbutton.png */,
 				02E2D55D1BFAFFB60074978B /* player_square.png */,
 				02A869201BD5CE5B002CCB27 /* main.m */,
+				02AB2B141BFC29CE00C81AFB /* corners_defines.h */,
+				02AB2B131BFC298B00C81AFB /* prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -267,8 +282,10 @@
 				02A869341BD5CE5B002CCB27 /* LaunchScreen.storyboard in Resources */,
 				02A869311BD5CE5B002CCB27 /* Assets.xcassets in Resources */,
 				02E2D55E1BFAFFB60074978B /* player_square.png in Resources */,
+				02AB2B121BFC0CD700C81AFB /* Rbutton.png in Resources */,
 				02A8692F1BD5CE5B002CCB27 /* Main.storyboard in Resources */,
 				02E2D55C1BFAD9AC0074978B /* StartScene.sks in Resources */,
+				02AB2B111BFC0CD700C81AFB /* LButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */,
 				02A8692C1BD5CE5B002CCB27 /* GameViewController.m in Sources */,
 				02A869241BD5CE5B002CCB27 /* AppDelegate.m in Sources */,
 				02A869271BD5CE5B002CCB27 /* GameScene.m in Sources */,
@@ -440,11 +458,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "/Users/brandonliebman/Documents/Xcode Projects/Corners/Corners/prefix.pch";
 				INFOPLIST_FILE = Corners/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = brandash.Corners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -454,11 +474,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "/Users/brandonliebman/Documents/Xcode Projects/Corners/Corners/prefix.pch";
 				INFOPLIST_FILE = Corners/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = brandash.Corners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

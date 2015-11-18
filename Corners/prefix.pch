@@ -1,0 +1,17 @@
+//
+//  prefix.pch
+//  Corners
+//
+//  Created by Brandon Liebman on 2015-11-17.
+//  Copyright © 2015 Brandon Liebman. All rights reserved.
+//
+
+#ifndef prefix_pch
+#define prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "corners_defines.h"
+
+#endif /* prefix_pch */
