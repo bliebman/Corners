@@ -10,7 +10,11 @@
 
 @interface PlayerNode ()
 
+@property (nonatomic) NSTimer *accelTimer;
+
 - (void)setupPhysicsBody;
+
+- (void)addTorque;
 
 @end
 
@@ -70,22 +74,52 @@
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = YES;
     self.physicsBody.allowsRotation = YES;
-    [self.physicsBody setAngularDamping:0.7];
+    [self.physicsBody setAngularDamping:0.1];
 }
 
 -(void)beginRotatingWithDirection:(kPlayerRotationDirection)direction
 {
     self.isRotating = YES;
     
-    while (self.isRotating)
+    self.rotationDirection = direction;
+    
+    [self.physicsBody applyAngularImpulse:(direction == kPlayerRotationDirectionClockwise ? -1 : 1)];
+    
+    self.accelTimer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(addTorque) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.accelTimer forMode:NSRunLoopCommonModes];
+}
+
+-(void)stopRotating
+{
+    [self.accelTimer invalidate];
+    self.isRotating = NO;
+    self.rotationDirection = -1;
+    [self.physicsBody setAngularVelocity:0];
+}
+
+-(void)addTorque
+{
+    if (self.rotationDirection == kPlayerRotationDirectionClockwise)
     {
-        if (direction == kPlayerRotationDirectionClockwise)
+        if (self.physicsBody.angularVelocity < -10.0)
         {
-            [self.physicsBody applyAngularImpulse:0.001];
+            self.physicsBody.angularVelocity = -10.0;
         }
-        else if (direction == kPlayerRotationDirectionCounterClockwise)
+        else
         {
-            [self.physicsBody applyAngularImpulse:-0.001];
+            [self.physicsBody applyAngularImpulse:-0.2];
+        }
+    }
+    else if (self.rotationDirection == kPlayerRotationDirectionCounterClockwise)
+    {
+        if (self.physicsBody.angularVelocity > 10.0)
+        {
+            self.physicsBody.angularVelocity = 10.0;
+        }
+        else
+        {
+            [self.physicsBody applyAngularImpulse:0.2];
         }
     }
 }

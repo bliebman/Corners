@@ -14,8 +14,12 @@
 
 @property (nonatomic) bool isRotating;
 
+@property (nonatomic) kPlayerRotationDirection rotationDirection;
+
 - (instancetype)initWithShapeType:(kPlayerShapeType)shapeType;
 
 - (void)beginRotatingWithDirection:(kPlayerRotationDirection)direction;
+
+- (void)stopRotating;
 
 @end

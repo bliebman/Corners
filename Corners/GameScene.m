@@ -43,20 +43,21 @@
     if ([self.leftButtonNode containsPoint:location])
     {
         NSLog(@"left button hit");
-        [self.playerNode.physicsBody setAngularVelocity:0];
+        //[self.playerNode.physicsBody setAngularVelocity:0];
         [self.playerNode beginRotatingWithDirection:kPlayerRotationDirectionCounterClockwise];
     }
     else if ([self.rightButtonNode containsPoint:location])
     {
         NSLog(@"right button hit");
-        [self.playerNode.physicsBody setAngularVelocity:0];
-        [self.playerNode beginRotatingWithDirection:kPlayerRotationDirectionCounterClockwise];
+        //[self.playerNode.physicsBody setAngularVelocity:0];
+        [self.playerNode beginRotatingWithDirection:kPlayerRotationDirectionClockwise];
     }
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    self.playerNode.isRotating = NO;
+    NSLog(@"Stopping rotation...");
+    [self.playerNode stopRotating];
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
