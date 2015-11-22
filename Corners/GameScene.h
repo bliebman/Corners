@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "PlayerNode.h"
+#import "CornerNode.h"
 
 @interface GameScene : SKScene
 
@@ -15,5 +16,7 @@
 
 @property (nonatomic) SKSpriteNode *leftButtonNode;
 @property (nonatomic) SKSpriteNode *rightButtonNode;
+
+@property (nonatomic) NSTimer *cornerTimer;
 
 @end

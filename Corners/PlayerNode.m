@@ -22,7 +22,7 @@
 
 -(instancetype)init
 {
-    if (self = [super init])
+    if (self = [super initWithImageNamed:@"Square"])
     {
         self.isRotating = NO;
         self.shapeType = kPlayerShapeTypeSquare;
@@ -32,30 +32,32 @@
     return self;
 }
 
--(instancetype)initWithShapeType:(kPlayerShapeType)shapeType
+-(instancetype)initWithShapeType:(kPlayerShapeType)type
 {
-    if (shapeType == kPlayerShapeTypeTriangle)
+    if (type == kPlayerShapeTypeTriangle)
     {
         self = [super initWithImageNamed:@"Triangle"];
     }
-    else if (shapeType == kPlayerShapeTypeSquare)
+    else if (type == kPlayerShapeTypeSquare)
     {
         self = [super initWithImageNamed:@"Square"];
     }
-    else if (shapeType == kPlayerShapeTypePentagon)
+    else if (type == kPlayerShapeTypePentagon)
     {
         self = [super initWithImageNamed:@"Pentagon"];
     }
-    else if (shapeType == kPlayerShapeTypeHexagon)
+    else if (type == kPlayerShapeTypeHexagon)
     {
         self = [super initWithImageNamed:@"Hexagon"];
     }
-    else if (shapeType == kPlayerShapeTypeOctagon)
+    else if (type == kPlayerShapeTypeOctagon)
     {
         self = [super initWithImageNamed:@"Octagon"];
     }
     
-    if (self) {
+    if (self)
+    {
+        self.shapeType = type;
         self.isRotating = NO;
         [self setupPhysicsBody];
     }

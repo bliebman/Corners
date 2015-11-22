@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0241E3141C00FF9F00388BEA /* CornerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0241E3131C00FF9F00388BEA /* CornerNode.m */; };
+		0241E3161C011B0B00388BEA /* corner_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 0241E3151C011B0B00388BEA /* corner_square.png */; };
 		02A869211BD5CE5B002CCB27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869201BD5CE5B002CCB27 /* main.m */; };
 		02A869241BD5CE5B002CCB27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869231BD5CE5B002CCB27 /* AppDelegate.m */; };
 		02A869271BD5CE5B002CCB27 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869261BD5CE5B002CCB27 /* GameScene.m */; };
@@ -43,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0241E3121C00FF9F00388BEA /* CornerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CornerNode.h; sourceTree = "<group>"; };
+		0241E3131C00FF9F00388BEA /* CornerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CornerNode.m; sourceTree = "<group>"; };
+		0241E3151C011B0B00388BEA /* corner_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner_square.png; sourceTree = "<group>"; };
 		02A8691C1BD5CE5B002CCB27 /* Corners.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Corners.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A869201BD5CE5B002CCB27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02A869221BD5CE5B002CCB27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,11 +132,13 @@
 				02E812AB1BF5A7D0004FE543 /* StartScene.h */,
 				02E812AC1BF5A7D0004FE543 /* StartScene.m */,
 				02E2D55B1BFAD9AC0074978B /* StartScene.sks */,
-				02AB2B151BFC2D9400C81AFB /* PlayerNode.h */,
-				02AB2B161BFC2D9400C81AFB /* PlayerNode.m */,
 				02A869251BD5CE5B002CCB27 /* GameScene.h */,
 				02A869261BD5CE5B002CCB27 /* GameScene.m */,
 				02A869281BD5CE5B002CCB27 /* GameScene.sks */,
+				02AB2B151BFC2D9400C81AFB /* PlayerNode.h */,
+				02AB2B161BFC2D9400C81AFB /* PlayerNode.m */,
+				0241E3121C00FF9F00388BEA /* CornerNode.h */,
+				0241E3131C00FF9F00388BEA /* CornerNode.m */,
 				02A8692A1BD5CE5B002CCB27 /* GameViewController.h */,
 				02A8692B1BD5CE5B002CCB27 /* GameViewController.m */,
 				02A8692D1BD5CE5B002CCB27 /* Main.storyboard */,
@@ -146,6 +153,7 @@
 		02A8691F1BD5CE5B002CCB27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0241E3151C011B0B00388BEA /* corner_square.png */,
 				02AB2B0F1BFC0CD700C81AFB /* LButton.png */,
 				02AB2B101BFC0CD700C81AFB /* Rbutton.png */,
 				02E2D55D1BFAFFB60074978B /* player_square.png */,
@@ -279,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A869291BD5CE5B002CCB27 /* GameScene.sks in Resources */,
+				0241E3161C011B0B00388BEA /* corner_square.png in Resources */,
 				02A869341BD5CE5B002CCB27 /* LaunchScreen.storyboard in Resources */,
 				02A869311BD5CE5B002CCB27 /* Assets.xcassets in Resources */,
 				02E2D55E1BFAFFB60074978B /* player_square.png in Resources */,
@@ -312,6 +321,7 @@
 			files = (
 				02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */,
 				02A8692C1BD5CE5B002CCB27 /* GameViewController.m in Sources */,
+				0241E3141C00FF9F00388BEA /* CornerNode.m in Sources */,
 				02A869241BD5CE5B002CCB27 /* AppDelegate.m in Sources */,
 				02A869271BD5CE5B002CCB27 /* GameScene.m in Sources */,
 				02A869211BD5CE5B002CCB27 /* main.m in Sources */,
