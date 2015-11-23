@@ -8,6 +8,12 @@
 
 #import "CornerNode.h"
 
+@interface CornerNode ()
+
+- (void)setupPhysicsBody;
+
+@end
+
 @implementation CornerNode
 
 - (instancetype)init
@@ -15,10 +21,12 @@
     if (self = [super initWithImageNamed:@"CornerSquare"])
     {
         _cornerType = kPlayerShapeTypeSquare;
+        [self setupPhysicsBody];
         self.colorBlendFactor = 1.0;
         self.color = [SKColor blackColor];
         [self setZPosition:-1.0];
         [self setAnchorPoint:CGPointMake(0.39695, 0.60305)];
+        //[self setAnchorPoint:CGPointMake(1, 0)];
     }
     return self;
 }
@@ -48,6 +56,7 @@
     
     if (self)
     {
+        [self setupPhysicsBody];
         self.colorBlendFactor = 1.0;
         self.color = [self getColorWithShape:type match:match];
         [self setAnchorPoint:CGPointMake(0.39695, 0.60305)];
@@ -56,6 +65,14 @@
     }
 
     return self;
+}
+
+-(void)setupPhysicsBody
+{
+    self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size center:CGPointMake(0, 0)];
+    [self.physicsBody setCategoryBitMask:kPhysicsCategoryCorner];
+    self.physicsBody.contactTestBitMask = kPhysicsCategoryPlayer;
+    [self.physicsBody setCollisionBitMask:0x0];
 }
 
 - (SKColor*)getColorWithShape:(kPlayerShapeType)shape match:(NSUInteger)match

@@ -20,7 +20,7 @@
 {
     // Set up the player and controls
     
-    [self setBackgroundColor:[SKColor whiteColor]];
+    [self setBackgroundColor:[SKColor blackColor]];
     
     self.rightButtonNode = [SKSpriteNode spriteNodeWithImageNamed:@"RightButton"];
     self.leftButtonNode = [SKSpriteNode spriteNodeWithImageNamed:@"LeftButton"];
@@ -35,12 +35,16 @@
     
     self.playerNode = [[PlayerNode alloc] initWithShapeType:kPlayerShapeTypeSquare];
     [self.playerNode setPosition:CGPointMake(self.size.width/2, self.size.height/2 + self.leftButtonNode.frame.size.height/2)];
+    [self.playerNode setScale:0.8];
 
+    self.physicsWorld.gravity = CGVectorMake(0, 0);
+    self.physicsWorld.contactDelegate = self;
+    
     [self addChild:self.rightButtonNode];
     [self addChild:self.leftButtonNode];
     [self addChild:self.playerNode];
     
-    self.cornerTimer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(deployCorner) userInfo:nil repeats:YES];
+    self.cornerTimer = [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(deployCorner) userInfo:nil repeats:YES];
     
 }
 
@@ -53,13 +57,11 @@
     if ([self.leftButtonNode containsPoint:location])
     {
         NSLog(@"left button hit");
-        //[self.playerNode.physicsBody setAngularVelocity:0];
         [self.playerNode beginRotatingWithDirection:kPlayerRotationDirectionCounterClockwise];
     }
     else if ([self.rightButtonNode containsPoint:location])
     {
         NSLog(@"right button hit");
-        //[self.playerNode.physicsBody setAngularVelocity:0];
         [self.playerNode beginRotatingWithDirection:kPlayerRotationDirectionClockwise];
     }
 }
@@ -95,18 +97,40 @@
     /* Called before each frame is rendered */
 }
 
+-(void)didBeginContact:(SKPhysicsContact *)contact
+{
+    SKPhysicsBody *cornerBody = (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask ? contact.bodyA : contact.bodyB);
+    CornerNode *corner = (CornerNode *)cornerBody.node;
+    
+    NSLog(@"Corner contact with match# %lu", (unsigned long)corner.match);
+    SKAction *waitAction = [SKAction waitForDuration:0.25];
+    SKAction *sequence = [SKAction sequence:@[waitAction, [SKAction runBlock:^{
+        [corner removeFromParent];
+    }]]];
+    [corner runAction:sequence];
+}
+
+-(void)didEndContact:(SKPhysicsContact *)contact
+{
+
+}
+
 -(void)deployCorner
 {
     NSLog(@"Setting up corner...");
-    CGFloat startAngle = randomAngle();
-    CGPoint startPos = CGPointMake(xPolar(400, startAngle) + self.playerNode.position.x, yPolar(400, startAngle) + self.playerNode.position.y);
     
-    NSUInteger matchNumber = arc4random_uniform(4);
+    NSUInteger matchNumber = arc4random_uniform(self.playerNode.numCorners);
+    NSUInteger cornerNumber = arc4random_uniform(self.playerNode.numCorners);
+    
+    CGFloat startAngle = self.playerNode.rotationAngle/2 + (cornerNumber + 1)*self.playerNode.rotationAngle;
+    
+    CGPoint startPos = CGPointMake(xPolar(400, startAngle) + self.playerNode.position.x, yPolar(400, startAngle) + self.playerNode.position.y);
     
     NSLog(@"startAngle=%f", startAngle*(180.0/M_PI));
     
     CornerNode *corner = [[CornerNode alloc] initWithShape:self.playerNode.shapeType angle:startAngle match:matchNumber];
     [corner setPosition:startPos];
+    [corner setScale:0.7];
     [self addChild:corner];
     
     SKAction *moveAction = [SKAction moveTo:CGPointMake(self.playerNode.position.x, self.playerNode.position.y) duration:3.0];
@@ -115,11 +139,6 @@
     }]]];
     
     [corner runAction:sequence];
-}
-
-CGFloat randomAngle()
-{
-    return (((CGFloat) rand() / RAND_MAX) * 2*M_PI);
 }
 
 @end

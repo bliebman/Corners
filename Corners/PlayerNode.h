@@ -10,11 +10,13 @@
 
 @interface PlayerNode : SKSpriteNode
 
-@property (nonatomic) kPlayerShapeType shapeType;
+@property (nonatomic, readonly) kPlayerShapeType shapeType;
 
-@property (nonatomic) bool isRotating;
-
+@property (nonatomic, readonly) uint32_t numCorners;
+@property (nonatomic, readonly) CGFloat rotationAngle;
 @property (nonatomic) kPlayerRotationDirection rotationDirection;
+
+@property (nonatomic, readonly) bool isRotating;
 
 - (instancetype)initWithShapeType:(kPlayerShapeType)shapeType;
 

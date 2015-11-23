@@ -10,7 +10,7 @@
 #import "PlayerNode.h"
 #import "CornerNode.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene <SKPhysicsContactDelegate>
 
 @property (nonatomic) PlayerNode *playerNode;
 
