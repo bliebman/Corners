@@ -99,10 +99,16 @@
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-    SKPhysicsBody *cornerBody = (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask ? contact.bodyA : contact.bodyB);
+
+    SKPhysicsBody *cornerMatchBody = (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask ? contact.bodyA : contact.bodyB);
+    SKPhysicsBody *cornerBody = (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask ? contact.bodyB : contact.bodyA);
+    CornerMatchNode *cornerMatch = (CornerMatchNode *)cornerMatchBody.node;
     CornerNode *corner = (CornerNode *)cornerBody.node;
     
-    NSLog(@"Corner contact with match# %lu", (unsigned long)corner.match);
+    if (corner.colorNumber == cornerMatch.cornerNumber) {
+        NSLog(@"POINT!!!!!");
+    }
+    
     SKAction *waitAction = [SKAction waitForDuration:0.25];
     SKAction *sequence = [SKAction sequence:@[waitAction, [SKAction runBlock:^{
         [corner removeFromParent];
@@ -117,20 +123,11 @@
 
 -(void)deployCorner
 {
-    NSLog(@"Setting up corner...");
+    uint32_t cornerNumber = arc4random_uniform(self.playerNode.numCorners);
     
-    NSUInteger matchNumber = arc4random_uniform(self.playerNode.numCorners);
-    NSUInteger cornerNumber = arc4random_uniform(self.playerNode.numCorners);
-    
-    CGFloat startAngle = self.playerNode.rotationAngle/2 + (cornerNumber + 1)*self.playerNode.rotationAngle;
-    
-    CGPoint startPos = CGPointMake(xPolar(400, startAngle) + self.playerNode.position.x, yPolar(400, startAngle) + self.playerNode.position.y);
-    
-    NSLog(@"startAngle=%f", startAngle*(180.0/M_PI));
-    
-    CornerNode *corner = [[CornerNode alloc] initWithShape:self.playerNode.shapeType angle:startAngle match:matchNumber];
-    [corner setPosition:startPos];
+    CornerNode *corner = [[CornerNode alloc] initWithPlayer:self.playerNode position:cornerNumber];
     [corner setScale:0.7];
+    
     [self addChild:corner];
     
     SKAction *moveAction = [SKAction moveTo:CGPointMake(self.playerNode.position.x, self.playerNode.position.y) duration:3.0];

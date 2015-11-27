@@ -23,8 +23,9 @@
 #define kNumCornersHexagon      6
 #define kNumCornersOctagon      8
 
-#define kPhysicsCategoryPlayer  0x1
-#define kPhysicsCategoryCorner  0x1 << 1
+#define kPhysicsCategoryPlayer          0x1
+#define kPhysicsCategoryCorner          0x1 << 1
+#define kPhysicsCategoryCornerMatch     0x1 << 2
 
 #define xPolar(r,q) (r)*cosf(q)
 #define yPolar(r,q) (r)*sinf(q)

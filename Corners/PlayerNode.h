@@ -7,6 +7,8 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "CornerNode.h"
+#import "CornerMatchNode.h"
 
 @interface PlayerNode : SKSpriteNode
 
@@ -14,7 +16,10 @@
 
 @property (nonatomic, readonly) uint32_t numCorners;
 @property (nonatomic, readonly) CGFloat rotationAngle;
+@property (nonatomic) int32_t rotationPosition;
 @property (nonatomic) kPlayerRotationDirection rotationDirection;
+
+@property (nonatomic) NSMutableArray *cornerMatchArray;
 
 @property (nonatomic, readonly) bool isRotating;
 

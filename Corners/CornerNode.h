@@ -8,12 +8,18 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@class PlayerNode;
+
 @interface CornerNode : SKSpriteNode
+
+@property (nonatomic) PlayerNode *player;
 
 @property (nonatomic) kPlayerShapeType cornerType;
 
-@property (nonatomic) NSUInteger match;
+@property (nonatomic, readonly) CGFloat attackAngle;
+@property (nonatomic, readonly) uint32_t attackPosition;
+@property (nonatomic, readonly) uint32_t colorNumber;
 
-- (instancetype)initWithShape:(kPlayerShapeType)type angle:(CGFloat)angle match:(NSUInteger)match;
+- (instancetype)initWithPlayer:(PlayerNode *)p position:(uint32_t)position;
 
 @end
