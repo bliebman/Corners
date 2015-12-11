@@ -23,9 +23,10 @@
 		02AB2B111BFC0CD700C81AFB /* LButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AB2B0F1BFC0CD700C81AFB /* LButton.png */; };
 		02AB2B121BFC0CD700C81AFB /* Rbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AB2B101BFC0CD700C81AFB /* Rbutton.png */; };
 		02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AB2B161BFC2D9400C81AFB /* PlayerNode.m */; };
-		02E2D55C1BFAD9AC0074978B /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 02E2D55B1BFAD9AC0074978B /* StartScene.sks */; };
+		02C531221C1A7BC00063051A /* player_square_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C531211C1A7BC00063051A /* player_square_new.png */; };
 		02E2D55E1BFAFFB60074978B /* player_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E2D55D1BFAFFB60074978B /* player_square.png */; };
 		02E812AD1BF5A7D0004FE543 /* StartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E812AC1BF5A7D0004FE543 /* StartScene.m */; };
+		02FF729C1C16828100B902DA /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FF729B1C16828100B902DA /* GameOverScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,10 +77,12 @@
 		02AB2B141BFC29CE00C81AFB /* corners_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = corners_defines.h; sourceTree = "<group>"; };
 		02AB2B151BFC2D9400C81AFB /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
 		02AB2B161BFC2D9400C81AFB /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
-		02E2D55B1BFAD9AC0074978B /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
+		02C531211C1A7BC00063051A /* player_square_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_square_new.png; sourceTree = "<group>"; };
 		02E2D55D1BFAFFB60074978B /* player_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_square.png; sourceTree = "<group>"; };
 		02E812AB1BF5A7D0004FE543 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartScene.h; sourceTree = "<group>"; };
 		02E812AC1BF5A7D0004FE543 /* StartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartScene.m; sourceTree = "<group>"; };
+		02FF729A1C16828100B902DA /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		02FF729B1C16828100B902DA /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,10 +137,11 @@
 				02A869231BD5CE5B002CCB27 /* AppDelegate.m */,
 				02E812AB1BF5A7D0004FE543 /* StartScene.h */,
 				02E812AC1BF5A7D0004FE543 /* StartScene.m */,
-				02E2D55B1BFAD9AC0074978B /* StartScene.sks */,
 				02A869251BD5CE5B002CCB27 /* GameScene.h */,
 				02A869261BD5CE5B002CCB27 /* GameScene.m */,
 				02A869281BD5CE5B002CCB27 /* GameScene.sks */,
+				02FF729A1C16828100B902DA /* GameOverScene.h */,
+				02FF729B1C16828100B902DA /* GameOverScene.m */,
 				02AB2B151BFC2D9400C81AFB /* PlayerNode.h */,
 				02AB2B161BFC2D9400C81AFB /* PlayerNode.m */,
 				0241E3121C00FF9F00388BEA /* CornerNode.h */,
@@ -162,6 +166,7 @@
 				02AB2B0F1BFC0CD700C81AFB /* LButton.png */,
 				02AB2B101BFC0CD700C81AFB /* Rbutton.png */,
 				02E2D55D1BFAFFB60074978B /* player_square.png */,
+				02C531211C1A7BC00063051A /* player_square_new.png */,
 				02A869201BD5CE5B002CCB27 /* main.m */,
 				02AB2B141BFC29CE00C81AFB /* corners_defines.h */,
 				02AB2B131BFC298B00C81AFB /* prefix.pch */,
@@ -295,10 +300,10 @@
 				0241E3161C011B0B00388BEA /* corner_square.png in Resources */,
 				02A869341BD5CE5B002CCB27 /* LaunchScreen.storyboard in Resources */,
 				02A869311BD5CE5B002CCB27 /* Assets.xcassets in Resources */,
+				02C531221C1A7BC00063051A /* player_square_new.png in Resources */,
 				02E2D55E1BFAFFB60074978B /* player_square.png in Resources */,
 				02AB2B121BFC0CD700C81AFB /* Rbutton.png in Resources */,
 				02A8692F1BD5CE5B002CCB27 /* Main.storyboard in Resources */,
-				02E2D55C1BFAD9AC0074978B /* StartScene.sks in Resources */,
 				02AB2B111BFC0CD700C81AFB /* LButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				026679431C06C15C00BD6032 /* CornerMatchNode.m in Sources */,
+				02FF729C1C16828100B902DA /* GameOverScene.m in Sources */,
 				02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */,
 				02A8692C1BD5CE5B002CCB27 /* GameViewController.m in Sources */,
 				0241E3141C00FF9F00388BEA /* CornerNode.m in Sources */,

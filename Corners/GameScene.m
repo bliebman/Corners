@@ -7,10 +7,16 @@
 //
 
 #import "GameScene.h"
+#import "GameOverScene.h"
 
 @interface GameScene ()
+{
+    uint32_t score;
+}
 
+@property (nonatomic) SKLabelNode *scoreLabelNode;
 -(void)deployCorner;
+-(void)gameOver;
 
 @end
 
@@ -20,15 +26,12 @@
 {
     // Set up the player and controls
     
-    [self setBackgroundColor:[SKColor blackColor]];
+    [self setBackgroundColor:[SKColor colorWithRed:0.007843 green:0.09412 blue:0.3529 alpha:1]];
     
     self.rightButtonNode = [SKSpriteNode spriteNodeWithImageNamed:@"RightButton"];
     self.leftButtonNode = [SKSpriteNode spriteNodeWithImageNamed:@"LeftButton"];
     
     self.leftButtonNode.name = @"leftButton";
-    
-    [self.leftButtonNode setScale:1.15];
-    [self.rightButtonNode setScale:1.15];
     
     [self.leftButtonNode setPosition:CGPointMake(CGRectGetMidX(self.frame) - self.leftButtonNode.frame.size.width/2, self.leftButtonNode.frame.size.height/2)];
     [self.rightButtonNode setPosition:CGPointMake(CGRectGetMidX(self.frame) + self.rightButtonNode.frame.size.width/2, self.rightButtonNode.frame.size.height/2)];
@@ -36,6 +39,15 @@
     self.playerNode = [[PlayerNode alloc] initWithShapeType:kPlayerShapeTypeSquare];
     [self.playerNode setPosition:CGPointMake(self.size.width/2, self.size.height/2 + self.leftButtonNode.frame.size.height/2)];
     [self.playerNode setScale:0.8];
+    
+    self.scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
+    [self.scoreLabelNode setText:@"0"];
+    [self.scoreLabelNode setFontColor:[SKColor whiteColor]];
+    [self.scoreLabelNode setFontSize:60];
+
+    [self.scoreLabelNode setPosition:CGPointMake(self.playerNode.position.x, self.playerNode.position.y - (self.scoreLabelNode.frame.size.height/2))];
+    
+    
 
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     self.physicsWorld.contactDelegate = self;
@@ -43,6 +55,9 @@
     [self addChild:self.rightButtonNode];
     [self addChild:self.leftButtonNode];
     [self addChild:self.playerNode];
+    [self addChild:self.scoreLabelNode];
+    
+    score = 0;
     
     self.cornerTimer = [NSTimer scheduledTimerWithTimeInterval:1.2 target:self selector:@selector(deployCorner) userInfo:nil repeats:YES];
     
@@ -105,20 +120,27 @@
     CornerMatchNode *cornerMatch = (CornerMatchNode *)cornerMatchBody.node;
     CornerNode *corner = (CornerNode *)cornerBody.node;
     
-    if (corner.colorNumber == cornerMatch.cornerNumber) {
-        NSLog(@"POINT!!!!!");
-    }
-    
-    SKAction *waitAction = [SKAction waitForDuration:0.25];
+    SKAction *waitAction = [SKAction waitForDuration:0.2];
     SKAction *sequence = [SKAction sequence:@[waitAction, [SKAction runBlock:^{
         [corner removeFromParent];
     }]]];
+    
     [corner runAction:sequence];
-}
-
--(void)didEndContact:(SKPhysicsContact *)contact
-{
-
+    
+    if (corner.colorNumber == cornerMatch.cornerNumber)
+    {
+        ++score;
+        if (score >= 100)
+        {
+            [self.scoreLabelNode setFontSize:45];
+        }
+        [self.scoreLabelNode setText:[NSString stringWithFormat:@"%u", score]];
+    }
+    else
+    {
+        //self.scene.view.paused = YES;
+        [self gameOver];
+    }
 }
 
 -(void)deployCorner
@@ -136,6 +158,21 @@
     }]]];
     
     [corner runAction:sequence];
+}
+
+-(void)gameOver
+{
+    NSUInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+    
+    if ((!highScore) || (score > highScore))
+    {
+        [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"HighScore"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    GameOverScene *gameOverScene = [GameOverScene sceneWithSize:self.size score:score high:NO];
+    gameOverScene.scaleMode = SKSceneScaleModeAspectFill;
+    [self.view presentScene:gameOverScene transition:[SKTransition doorsCloseHorizontalWithDuration:1.0]];
 }
 
 @end

@@ -50,10 +50,14 @@
             _rotationAngle = kPlayerAngleSquare;
             _numCorners = 4;
             _cornerMatchArray = [[NSMutableArray alloc] initWithCapacity:4];
-            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:0 color:[SKColor redColor] position:[self makePositionFromRadius:87.5 angle:M_PI_2/2]]];
-            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:1 color:[SKColor blueColor] position:[self makePositionFromRadius:87.5 angle:M_PI-M_PI_2/2]]];
-            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:2 color:[SKColor yellowColor] position:[self makePositionFromRadius:87.5 angle:M_PI + M_PI_2/2]]];
-            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:3 color:[SKColor greenColor] position:[self makePositionFromRadius:87.5 angle:2*M_PI - M_PI_2/2]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:0 color:[SKColor redColor] position:[self makePositionFromRadius:70 angle:M_PI_2/2]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:1 color:[SKColor blueColor] position:[self makePositionFromRadius:70 angle:M_PI-M_PI_2/2]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:2 color:[SKColor yellowColor] position:[self makePositionFromRadius:70 angle:M_PI + M_PI_2/2]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:3 color:[SKColor greenColor] position:[self makePositionFromRadius:70 angle:2*M_PI - M_PI_2/2]]];
         }
     }
     else if (type == kPlayerShapeTypePentagon)
@@ -164,7 +168,7 @@
 
 - (CGPoint)makePositionFromRadius:(CGFloat)r angle:(CGFloat)q
 {
-    return CGPointMake(xPolar(87.5, q) + CGRectGetMidX(self.frame), yPolar(87.5, q) + CGRectGetMidY(self.frame));
+    return CGPointMake(xPolar(r, q) + CGRectGetMidX(self.frame), yPolar(r, q) + CGRectGetMidY(self.frame));
 }
 
 
