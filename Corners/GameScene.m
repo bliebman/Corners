@@ -164,15 +164,28 @@
 {
     NSUInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
     
+    GameOverScene *gameOverScene;
+    
     if ((!highScore) || (score > highScore))
     {
         [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"HighScore"];
         
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        gameOverScene = [GameOverScene sceneWithGameScene:NULL size:self.size score:score high:YES];
     }
-    GameOverScene *gameOverScene = [GameOverScene sceneWithSize:self.size score:score high:NO];
+    else
+    {
+        gameOverScene = [GameOverScene sceneWithGameScene:NULL size:self.size score:score high:NO];
+    }
+
     gameOverScene.scaleMode = SKSceneScaleModeAspectFill;
     [self.view presentScene:gameOverScene transition:[SKTransition doorsCloseHorizontalWithDuration:1.0]];
+}
+
+-(void)reset
+{
+    score = 0;
 }
 
 @end

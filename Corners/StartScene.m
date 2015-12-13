@@ -11,14 +11,6 @@
 
 @implementation StartScene
 
--(instancetype)initWithSize:(CGSize)size
-{
-    if (self = [super initWithSize:size]) {
-        
-    }
-    return self;
-}
-
 -(void)didMoveToView:(SKView *)view
 {
     self.backgroundColor = [SKColor whiteColor];
@@ -28,9 +20,11 @@
     self.highScoreButtonNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
     self.settingsButtonNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
     
+    NSUInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
+    
     [[self nameLabelNode] setText:@"Corners"];
     [[self startButtonNode] setText:@"Start"];
-    [[self highScoreButtonNode] setText:@"High Scores"];
+    [[self highScoreButtonNode] setText:[NSString stringWithFormat:@"High Score: %lu", highScore]];
     [[self settingsButtonNode] setText:@"Settings"];
     
     [[self nameLabelNode] setFontColor:[SKColor blackColor]];

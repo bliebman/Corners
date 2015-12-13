@@ -19,4 +19,6 @@
 
 @property (nonatomic) NSTimer *cornerTimer;
 
+-(void)reset;
+
 @end
