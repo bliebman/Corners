@@ -41,13 +41,15 @@
                 _attackAngle = M_PI_2;
                 break;
             case 1:
-                _attackAngle = 2*M_PI - M_PI_2/2;
+                _attackAngle = (11.0*M_PI)/6.0;
                 break;
             case 2:
-                _attackAngle = M_PI + M_PI_2/2;
+                _attackAngle = (7.0*M_PI)/6.0;
+                break;
             default:
                 break;
         }
+        [self setAnchorPoint:CGPointMake(0.5, 0.36756757)];
     }
     else if (p.shapeType == kPlayerShapeTypeSquare)
     {
@@ -88,7 +90,7 @@
         [self setupPhysicsBody];
         _attackPosition = position;
         [self setPlayer:p];
-        [self setAnchorPoint:CGPointMake(0.39695, 0.60305)];
+        //[self setAnchorPoint:CGPointMake(0.39695, 0.60305)];
         
         CGPoint startPos = CGPointMake(xPolar(400, _attackAngle) + self.player.position.x, yPolar(400, _attackAngle) + self.player.position.y);
         [self setPosition:startPos];
@@ -99,7 +101,15 @@
         [self setColor:matchNode.cornerColor];
         
         [self setZPosition:-1.0];
-        [self setZRotation:(_attackAngle + M_PI + M_PI_4)];
+        
+        // Rotation offsets due to the orientation of the sprites
+        if (p.shapeType == kPlayerShapeTypeTriangle) {
+            [self setZRotation:_attackAngle - M_PI_2];
+        }
+        else if (p.shapeType == kPlayerShapeTypeSquare)
+        {
+            [self setZRotation:(_attackAngle + M_PI + M_PI_4)];
+        }
     }
 
     return self;
@@ -116,7 +126,8 @@
 - (SKColor*)getColorWithShape:(kPlayerShapeType)shape match:(NSUInteger)match
 {
     SKColor *color = nil;
-    if (kPlayerShapeTypeSquare) {
+    if (shape == kPlayerShapeTypeSquare)
+    {
         switch (match) {
             case 0:
                 color = [SKColor redColor];
@@ -134,6 +145,23 @@
                 break;
         }
     }
+    else if (shape == kPlayerShapeTypeTriangle)
+    {
+        switch (match) {
+            case 0:
+                color = [SKColor redColor];
+                break;
+            case 1:
+                color = [SKColor blueColor];
+                break;
+            case 2:
+                color = [SKColor greenColor];
+                break;
+            default:
+                break;
+        }
+    }
+    
     return color;
 }
 

@@ -30,7 +30,7 @@
         _rotationPosition = 0;
         [self setupPhysicsBody];
     }
-    
+
     return self;
 }
 
@@ -41,11 +41,19 @@
         if (self = [super initWithImageNamed:@"Triangle"]) {
             _rotationAngle = kPlayerAngleTriangle;
             _numCorners = 3;
+            _cornerMatchArray = [[NSMutableArray alloc] initWithCapacity:3];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:0 color:[SKColor redColor] position:[self makePositionFromRadius:50 angle:M_PI_2]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:1 color:[SKColor greenColor] position:[self makePositionFromRadius:50 angle:M_PI + M_PI_2/2]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:2 color:[SKColor blueColor] position:[self makePositionFromRadius:50 angle:2*M_PI - M_PI_2/2]]];
+            
+            [self setAnchorPoint:CGPointMake(0.5, 0.40857142)]; //0.44285714)];
         }
     }
     else if (type == kPlayerShapeTypeSquare)
     {
-        
         if (self = [super initWithImageNamed:@"Square"]) {
             _rotationAngle = kPlayerAngleSquare;
             _numCorners = 4;
@@ -69,7 +77,8 @@
     }
     else if (type == kPlayerShapeTypeHexagon)
     {
-        if (self = [super initWithImageNamed:@"Hexagon"]) {
+        if (self = [super initWithImageNamed:@"Hexagon"])
+        {
             _rotationAngle = kPlayerAngleHexagon;
             _numCorners = 6;
         }
@@ -77,7 +86,8 @@
     }
     else if (type == kPlayerShapeTypeOctagon)
     {
-        if (self = [super initWithImageNamed:@"Octagon"]) {
+        if (self = [super initWithImageNamed:@"Octagon"])
+        {
             _rotationAngle = kPlayerAngleOctagon;
             _numCorners = 8;
         }
@@ -163,6 +173,7 @@
     if (rotateAction)
     {
         [self runAction:rotateAction];
+        NSLog(@"[self runAction:rotateAction]");
     }
 }
 

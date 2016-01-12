@@ -21,7 +21,7 @@
     if (self = [super init])
     {
         _cornerNumber = 0;
-        [self setupPhysicsBodyAtPoint:CGPointMake(0, 0)];
+        [self setupPhysicsBodyAtPoint:CGPointZero];
     }
     
     return self;

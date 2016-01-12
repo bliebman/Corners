@@ -11,11 +11,11 @@
 #ifndef corners_defines_h
 #define corners_defines_h
 
-#define kPlayerAngleTriangle    (2/3)*M_PI
+#define kPlayerAngleTriangle    (2.0/3.0)*M_PI
 #define kPlayerAngleSquare      M_PI_2
-#define kPlayerAnglePentagon    (2/5)*M_PI
-#define kPlayerAngleHexagon     M_PI/3
-#define kPlayerAngleOctagon     M_PI/4
+#define kPlayerAnglePentagon    (2.0/5.0)*M_PI
+#define kPlayerAngleHexagon     M_PI/3.0
+#define kPlayerAngleOctagon     M_PI/4.0
 
 #define kNumCornersTriangle     3
 #define kNumCornersSquare       4
