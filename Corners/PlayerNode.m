@@ -68,19 +68,25 @@
             [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:3 color:[SKColor greenColor] position:[self makePositionFromRadius:70 angle:2*M_PI - M_PI_2/2]]];
         }
     }
-    else if (type == kPlayerShapeTypePentagon)
-    {
-        if (self = [super initWithImageNamed:@"Pentagon"]) {
-            _rotationAngle = kPlayerAnglePentagon;
-            _numCorners = 5;
-        }
-    }
     else if (type == kPlayerShapeTypeHexagon)
     {
         if (self = [super initWithImageNamed:@"Hexagon"])
         {
             _rotationAngle = kPlayerAngleHexagon;
             _numCorners = 6;
+            _cornerMatchArray = [[NSMutableArray alloc] initWithCapacity:6];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:0 color:[SKColor cyanColor] position:[self makePositionFromRadius:60 angle:0.0]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:1 color:[SKColor blueColor] position:[self makePositionFromRadius:60 angle:M_PI/3]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:2 color:[SKColor yellowColor] position:[self makePositionFromRadius:60 angle:2*M_PI/3]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:3 color:[SKColor magentaColor] position:[self makePositionFromRadius:60 angle:M_PI]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:4 color:[SKColor greenColor] position:[self makePositionFromRadius:60 angle:M_PI+(M_PI/3)]]];
+            
+            [_cornerMatchArray addObject:[[CornerMatchNode alloc] initWithCornerNumber:5 color:[SKColor redColor] position:[self makePositionFromRadius:60 angle:M_PI+(2*M_PI/3)]]];
         }
         
     }

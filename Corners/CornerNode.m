@@ -72,13 +72,31 @@
         }
 
     }
-    else if (p.shapeType == kPlayerShapeTypePentagon)
-    {
-        self = [super initWithImageNamed:@"CornerPentagon"];
-    }
     else if (p.shapeType == kPlayerShapeTypeHexagon)
     {
         self = [super initWithImageNamed:@"CornerHexagon"];
+        switch (position) {
+            case 0:
+                _attackAngle = 0.0;
+                break;
+            case 1:
+                _attackAngle = M_PI/3;
+                break;
+            case 2:
+                _attackAngle = 2*M_PI/3;
+                break;
+            case 3:
+                _attackAngle = M_PI;
+                break;
+            case 4:
+                _attackAngle = M_PI+(M_PI/3);
+                break;
+            case 5:
+                _attackAngle = M_PI+(2*M_PI/3);
+                break;
+            default:
+                break;
+        }
     }
     else if (p.shapeType == kPlayerShapeTypeOctagon)
     {
@@ -110,6 +128,11 @@
         {
             [self setZRotation:(_attackAngle + M_PI + M_PI_4)];
         }
+        else if (p.shapeType == kPlayerShapeTypeHexagon)
+        {
+            [self setZRotation:(_attackAngle)];
+        }
+        
     }
 
     return self;

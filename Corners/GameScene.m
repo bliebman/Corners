@@ -28,25 +28,25 @@
     
     [self setBackgroundColor:[SKColor colorWithRed:0.007843 green:0.09412 blue:0.3529 alpha:1]];
     
-    self.rightButtonNode = [SKSpriteNode spriteNodeWithImageNamed:@"RightButton"];
-    self.leftButtonNode = [SKSpriteNode spriteNodeWithImageNamed:@"LeftButton"];
+    self.rightButtonNode = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(self.frame.size.width/2, self.size.height)];
+    self.leftButtonNode = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(self.frame.size.width/2, self.size.height)];
     
-    self.leftButtonNode.name = @"leftButton";
+    [self.leftButtonNode setPosition:CGPointMake(self.size.width/4, self.size.height/2)];
+    [self.rightButtonNode setPosition:CGPointMake((3*self.size.width)/4, self.size.height/2)];
     
-    [self.leftButtonNode setPosition:CGPointMake(CGRectGetMidX(self.frame) - self.leftButtonNode.frame.size.width/2, self.leftButtonNode.frame.size.height/2)];
-    [self.rightButtonNode setPosition:CGPointMake(CGRectGetMidX(self.frame) + self.rightButtonNode.frame.size.width/2, self.rightButtonNode.frame.size.height/2)];
+    self.leftButtonNode.strokeColor = [SKColor clearColor];
+    self.rightButtonNode.strokeColor = [SKColor clearColor];
     
-    self.playerNode = [[PlayerNode alloc] initWithShapeType:kPlayerShapeTypeTriangle];
-    [self.playerNode setPosition:CGPointMake(self.size.width/2, self.size.height/2 + self.leftButtonNode.frame.size.height/2)];
+    self.playerNode = [[PlayerNode alloc] initWithShapeType:kPlayerShapeTypeSquare];
+    [self.playerNode setPosition:CGPointMake(self.size.width/2, self.size.height/2)];
     [self.playerNode setScale:0.8];
-    [self.playerNode setColor:[SKColor whiteColor]];
     
     self.scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
-    [self.scoreLabelNode setText:@"0"];
+    [self.scoreLabelNode setText:@"Score: 0"];
     [self.scoreLabelNode setFontColor:[SKColor whiteColor]];
     [self.scoreLabelNode setFontSize:30];
 
-    [self.scoreLabelNode setPosition:CGPointMake(self.playerNode.position.x, self.playerNode.position.y - (self.scoreLabelNode.frame.size.height/2))];
+    [self.scoreLabelNode setPosition:CGPointMake(80, 20)];
 
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     self.physicsWorld.contactDelegate = self;
@@ -129,12 +129,8 @@
     if (corner.colorNumber == cornerMatch.cornerNumber)
     {
         ++score;
-        
-        if (score >= 100)
-        {
-            [self.scoreLabelNode setFontSize:45];
-        }
-        [self.scoreLabelNode setText:[NSString stringWithFormat:@"%u", score]];
+
+        [self.scoreLabelNode setText:[NSString stringWithFormat:@"Score: %u", score]];
     }
     else
     {

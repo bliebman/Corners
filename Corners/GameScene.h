@@ -14,8 +14,8 @@
 
 @property (nonatomic) PlayerNode *playerNode;
 
-@property (nonatomic) SKSpriteNode *leftButtonNode;
-@property (nonatomic) SKSpriteNode *rightButtonNode;
+@property (nonatomic) SKShapeNode *leftButtonNode;
+@property (nonatomic) SKShapeNode *rightButtonNode;
 
 @property (nonatomic) NSTimer *cornerTimer;
 

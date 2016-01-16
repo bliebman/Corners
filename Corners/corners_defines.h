@@ -19,7 +19,6 @@
 
 #define kNumCornersTriangle     3
 #define kNumCornersSquare       4
-#define kNumCornersPentagon     5
 #define kNumCornersHexagon      6
 #define kNumCornersOctagon      8
 
@@ -40,7 +39,6 @@ typedef enum PlayerShapeType
 {
     kPlayerShapeTypeTriangle,
     kPlayerShapeTypeSquare,
-    kPlayerShapeTypePentagon,
     kPlayerShapeTypeHexagon,
     kPlayerShapeTypeOctagon
 } kPlayerShapeType;

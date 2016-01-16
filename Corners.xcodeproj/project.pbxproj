@@ -10,6 +10,9 @@
 		0241E3141C00FF9F00388BEA /* CornerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0241E3131C00FF9F00388BEA /* CornerNode.m */; };
 		0241E3161C011B0B00388BEA /* corner_square.png in Resources */ = {isa = PBXBuildFile; fileRef = 0241E3151C011B0B00388BEA /* corner_square.png */; };
 		026679431C06C15C00BD6032 /* CornerMatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 026679421C06C15C00BD6032 /* CornerMatchNode.m */; };
+		026A9A7E1C48915E004F4BAC /* player_hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 026A9A7D1C48915E004F4BAC /* player_hexagon.png */; };
+		026A9A801C48955B004F4BAC /* corner_hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = 026A9A7F1C48955B004F4BAC /* corner_hexagon.png */; };
+		0276F4B81C4A18380050C835 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0276F4B71C4A18380050C835 /* GameKit.framework */; };
 		02A869211BD5CE5B002CCB27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869201BD5CE5B002CCB27 /* main.m */; };
 		02A869241BD5CE5B002CCB27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869231BD5CE5B002CCB27 /* AppDelegate.m */; };
 		02A869271BD5CE5B002CCB27 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A869261BD5CE5B002CCB27 /* GameScene.m */; };
@@ -53,6 +56,9 @@
 		0241E3151C011B0B00388BEA /* corner_square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner_square.png; sourceTree = "<group>"; };
 		026679411C06C15C00BD6032 /* CornerMatchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CornerMatchNode.h; sourceTree = "<group>"; };
 		026679421C06C15C00BD6032 /* CornerMatchNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CornerMatchNode.m; sourceTree = "<group>"; };
+		026A9A7D1C48915E004F4BAC /* player_hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_hexagon.png; sourceTree = "<group>"; };
+		026A9A7F1C48955B004F4BAC /* corner_hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner_hexagon.png; sourceTree = "<group>"; };
+		0276F4B71C4A18380050C835 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		02A8691C1BD5CE5B002CCB27 /* Corners.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Corners.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A869201BD5CE5B002CCB27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		02A869221BD5CE5B002CCB27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0276F4B81C4A18380050C835 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +122,7 @@
 		02A869131BD5CE5B002CCB27 = {
 			isa = PBXGroup;
 			children = (
+				0276F4B71C4A18380050C835 /* GameKit.framework */,
 				02A8691E1BD5CE5B002CCB27 /* Corners */,
 				02A8693D1BD5CE5B002CCB27 /* CornersTests */,
 				02A869481BD5CE5B002CCB27 /* CornersUITests */,
@@ -166,10 +174,12 @@
 			children = (
 				0241E3151C011B0B00388BEA /* corner_square.png */,
 				02CB3BA61C2B618C00BB4425 /* corner_triangle.png */,
+				026A9A7F1C48955B004F4BAC /* corner_hexagon.png */,
 				02AB2B0F1BFC0CD700C81AFB /* LButton.png */,
 				02AB2B101BFC0CD700C81AFB /* Rbutton.png */,
 				02C531211C1A7BC00063051A /* player_square_new.png */,
 				02CB3BA41C2A2C0E00BB4425 /* player_triangle.png */,
+				026A9A7D1C48915E004F4BAC /* player_hexagon.png */,
 				02A869201BD5CE5B002CCB27 /* main.m */,
 				02AB2B141BFC29CE00C81AFB /* corners_defines.h */,
 				02AB2B131BFC298B00C81AFB /* prefix.pch */,
@@ -262,7 +272,12 @@
 				TargetAttributes = {
 					02A8691B1BD5CE5B002CCB27 = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 664B8EFL7L;
+						DevelopmentTeam = 5SJ5S4NAXU;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					02A869391BD5CE5B002CCB27 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -302,6 +317,7 @@
 				02CB3BA71C2B618C00BB4425 /* corner_triangle.png in Resources */,
 				02A869291BD5CE5B002CCB27 /* GameScene.sks in Resources */,
 				0241E3161C011B0B00388BEA /* corner_square.png in Resources */,
+				026A9A801C48955B004F4BAC /* corner_hexagon.png in Resources */,
 				02A869341BD5CE5B002CCB27 /* LaunchScreen.storyboard in Resources */,
 				02A869311BD5CE5B002CCB27 /* Assets.xcassets in Resources */,
 				02CB3BA51C2A2C0E00BB4425 /* player_triangle.png in Resources */,
@@ -309,6 +325,7 @@
 				02AB2B121BFC0CD700C81AFB /* Rbutton.png in Resources */,
 				02A8692F1BD5CE5B002CCB27 /* Main.storyboard in Resources */,
 				02AB2B111BFC0CD700C81AFB /* LButton.png in Resources */,
+				026A9A7E1C48915E004F4BAC /* player_hexagon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +504,7 @@
 				GCC_PREFIX_HEADER = "/Users/brandonliebman/Documents/Xcode Projects/Corners/Corners/prefix.pch";
 				INFOPLIST_FILE = Corners/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = brandash.Corners;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandash.Corners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -503,7 +520,7 @@
 				GCC_PREFIX_HEADER = "/Users/brandonliebman/Documents/Xcode Projects/Corners/Corners/prefix.pch";
 				INFOPLIST_FILE = Corners/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = brandash.Corners;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brandash.Corners;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
