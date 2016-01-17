@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "StartScene.h"
+#import "GameKitInterface.h"
 
 @implementation SKScene (Unarchive)
 
@@ -34,6 +35,20 @@
 -(void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(showAuthenticationViewController)
+     name:authenticateViewNotification
+     object:nil];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(showLeaderboard)
+     name:showLeaderboardNotification
+     object:nil];
+    
+    [[GameKitInterface sharedInterface] authenticatePlayer];
     
     // Configure the view.
     SKView * skView = (SKView *)self.view;
@@ -68,6 +83,13 @@
     }
 }
 
+- (void)showAuthenticationViewController
+{
+    GameKitInterface *gkInterface = [GameKitInterface sharedInterface];
+    
+    [self presentViewController:gkInterface.authViewController animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,6 +98,24 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (void) showLeaderboard
+{
+    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+    if (gameCenterController != nil)
+    {
+        gameCenterController.gameCenterDelegate = [GameKitInterface sharedInterface];
+        gameCenterController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        gameCenterController.leaderboardTimeScope = GKLeaderboardTimeScopeToday;
+        gameCenterController.leaderboardIdentifier = kGameCenterLeaderboardDefault;
+        [self presentViewController: gameCenterController animated: YES completion:nil];
+    }
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

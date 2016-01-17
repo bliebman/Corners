@@ -14,6 +14,6 @@
 
 @property (nonatomic) SKLabelNode *startButtonNode;
 @property (nonatomic) SKLabelNode *highScoreButtonNode;
-@property (nonatomic) SKLabelNode *settingsButtonNode;
+@property (nonatomic) SKLabelNode *gameCenterButtonNode;
 
 @end

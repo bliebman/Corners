@@ -8,6 +8,7 @@
 
 #import "StartScene.h"
 #import "GameScene.h"
+#import "GameKitInterface.h"
 
 @implementation StartScene
 
@@ -18,38 +19,38 @@
     self.nameLabelNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
     self.startButtonNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
     self.highScoreButtonNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
-    self.settingsButtonNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
+    self.gameCenterButtonNode = [SKLabelNode labelNodeWithFontNamed:@"Helvetica Neue"];
     
     NSUInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:@"HighScore"];
     
     [[self nameLabelNode] setText:@"Corners"];
     [[self startButtonNode] setText:@"Start"];
     [[self highScoreButtonNode] setText:[NSString stringWithFormat:@"High Score: %lu", highScore]];
-    [[self settingsButtonNode] setText:@"Settings"];
+    [[self gameCenterButtonNode] setText:@"Game Center"];
     
     [[self nameLabelNode] setFontColor:[SKColor blackColor]];
     [[self startButtonNode] setFontColor:[SKColor blackColor]];
     [[self highScoreButtonNode] setFontColor:[SKColor blackColor]];
-    [[self settingsButtonNode] setFontColor:[SKColor blackColor]];
+    [[self gameCenterButtonNode] setFontColor:[SKColor blackColor]];
     
     [[self nameLabelNode] setFontSize:60];
     [[self startButtonNode] setFontSize:30];
     [[self highScoreButtonNode] setFontSize:20];
-    [[self settingsButtonNode] setFontSize:20];
+    [[self gameCenterButtonNode] setFontSize:20];
     
     [[self nameLabelNode] setPosition:CGPointMake(self.size.width/2, self.size.height/2 + 100)];
     [[self startButtonNode] setPosition:CGPointMake(self.size.width/2, self.size.height/2)];
     [[self highScoreButtonNode] setPosition:CGPointMake(self.size.width/2, self.size.height/2 - 50)];
-    [[self settingsButtonNode] setPosition:CGPointMake(self.size.width/2, self.size.height/2 - 100)];
+    [[self gameCenterButtonNode] setPosition:CGPointMake(self.size.width/2, self.size.height/2 - 100)];
     
     self.startButtonNode.name = @"startButton";
     self.highScoreButtonNode.name = @"highScoreButton";
-    self.settingsButtonNode.name = @"settingsButton";
+    self.gameCenterButtonNode.name = @"gameCenterButton";
     
     [self addChild:[self nameLabelNode]];
     [self addChild:[self startButtonNode]];
     [self addChild:[self highScoreButtonNode]];
-    [self addChild:[self settingsButtonNode]];
+    [self addChild:[self gameCenterButtonNode]];
 
 }
 
@@ -70,9 +71,11 @@
         {
             NSLog(@"High Scores button pressed");
         }
-        else if ([_settingsButtonNode containsPoint:location])
+        else if ([_gameCenterButtonNode containsPoint:location])
         {
-            NSLog(@"Settings button pressed");
+            NSLog(@"Game Center button pressed");
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:showLeaderboardNotification object:self];
         }
     }
 }

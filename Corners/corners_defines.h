@@ -29,6 +29,8 @@
 #define xPolar(r,q) (r)*cosf(q)
 #define yPolar(r,q) (r)*sinf(q)
 
+#define kGameCenterLeaderboardDefault @"grp.CornerMatchesBoard"
+
 typedef enum PlayerRotationDirection
 {
     kPlayerRotationDirectionClockwise,

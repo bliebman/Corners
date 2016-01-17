@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "GameOverScene.h"
+#import "GameKitInterface.h"
 
 @interface GameScene ()
 {
@@ -169,6 +170,8 @@
         [[NSUserDefaults standardUserDefaults] setInteger:score forKey:@"HighScore"];
         
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[GameKitInterface sharedInterface] reportScore:score];
         
         gameOverScene = [GameOverScene sceneWithGameScene:NULL size:self.size score:score high:YES];
     }

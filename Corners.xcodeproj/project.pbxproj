@@ -26,6 +26,7 @@
 		02AB2B111BFC0CD700C81AFB /* LButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AB2B0F1BFC0CD700C81AFB /* LButton.png */; };
 		02AB2B121BFC0CD700C81AFB /* Rbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 02AB2B101BFC0CD700C81AFB /* Rbutton.png */; };
 		02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AB2B161BFC2D9400C81AFB /* PlayerNode.m */; };
+		02B1A6C01C4B2BF10038C69F /* GameKitInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B1A6BF1C4B2BF10038C69F /* GameKitInterface.m */; };
 		02C531221C1A7BC00063051A /* player_square_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 02C531211C1A7BC00063051A /* player_square_new.png */; };
 		02CB3BA51C2A2C0E00BB4425 /* player_triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CB3BA41C2A2C0E00BB4425 /* player_triangle.png */; };
 		02CB3BA71C2B618C00BB4425 /* corner_triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CB3BA61C2B618C00BB4425 /* corner_triangle.png */; };
@@ -84,6 +85,8 @@
 		02AB2B141BFC29CE00C81AFB /* corners_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = corners_defines.h; sourceTree = "<group>"; };
 		02AB2B151BFC2D9400C81AFB /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
 		02AB2B161BFC2D9400C81AFB /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
+		02B1A6BE1C4B2BF10038C69F /* GameKitInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitInterface.h; sourceTree = "<group>"; };
+		02B1A6BF1C4B2BF10038C69F /* GameKitInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitInterface.m; sourceTree = "<group>"; };
 		02C531211C1A7BC00063051A /* player_square_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_square_new.png; sourceTree = "<group>"; };
 		02CB3BA41C2A2C0E00BB4425 /* player_triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_triangle.png; sourceTree = "<group>"; };
 		02CB3BA61C2B618C00BB4425 /* corner_triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner_triangle.png; sourceTree = "<group>"; };
@@ -122,8 +125,8 @@
 		02A869131BD5CE5B002CCB27 = {
 			isa = PBXGroup;
 			children = (
-				0276F4B71C4A18380050C835 /* GameKit.framework */,
 				02A8691E1BD5CE5B002CCB27 /* Corners */,
+				02B1A6C11C4B70860038C69F /* Frameworks */,
 				02A8693D1BD5CE5B002CCB27 /* CornersTests */,
 				02A869481BD5CE5B002CCB27 /* CornersUITests */,
 				02A8691D1BD5CE5B002CCB27 /* Products */,
@@ -158,6 +161,8 @@
 				0241E3131C00FF9F00388BEA /* CornerNode.m */,
 				026679411C06C15C00BD6032 /* CornerMatchNode.h */,
 				026679421C06C15C00BD6032 /* CornerMatchNode.m */,
+				02B1A6BE1C4B2BF10038C69F /* GameKitInterface.h */,
+				02B1A6BF1C4B2BF10038C69F /* GameKitInterface.m */,
 				02A8692A1BD5CE5B002CCB27 /* GameViewController.h */,
 				02A8692B1BD5CE5B002CCB27 /* GameViewController.m */,
 				02A8692D1BD5CE5B002CCB27 /* Main.storyboard */,
@@ -203,6 +208,14 @@
 				02A8694B1BD5CE5B002CCB27 /* Info.plist */,
 			);
 			path = CornersUITests;
+			sourceTree = "<group>";
+		};
+		02B1A6C11C4B70860038C69F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0276F4B71C4A18380050C835 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,6 +367,7 @@
 				02FF729C1C16828100B902DA /* GameOverScene.m in Sources */,
 				02AB2B171BFC2D9400C81AFB /* PlayerNode.m in Sources */,
 				02A8692C1BD5CE5B002CCB27 /* GameViewController.m in Sources */,
+				02B1A6C01C4B2BF10038C69F /* GameKitInterface.m in Sources */,
 				0241E3141C00FF9F00388BEA /* CornerNode.m in Sources */,
 				02A869241BD5CE5B002CCB27 /* AppDelegate.m in Sources */,
 				02A869271BD5CE5B002CCB27 /* GameScene.m in Sources */,
